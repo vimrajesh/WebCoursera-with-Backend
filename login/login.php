@@ -20,7 +20,7 @@ session_start();
 <body class="text-center main-body">
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand hover-effect" href="../index.html" style="color:rgb(60, 98, 141)">
+            <a class="navbar-brand hover-effect" href="../index.php" style="color:rgb(60, 98, 141)">
                 <img src="../assets/images/logo.png" width="25" height="25" alt="..." />
                 WebCoursera
             </a>
@@ -93,11 +93,13 @@ session_start();
                             WHERE `email` = '$email'";
                     $result1 = mysqli_query($conn, $sql1);
                     while ($row1 = mysqli_fetch_assoc($result1)) {
-                        $_SESSION["username"] = $row1["email"];
-                        header("Location:../index.html");
+                        setcookie("user", explode(' ',trim($row1["name"]))[0], time() + (86400 * 30), "/"); 
+                        // echo explode(' ',trim($row1["name"]))[0];
+                        // echo "<script>setTimeout(\"location.href = '../index.php';\",1500);</script>";
+                        header("Location:../index.php");
                     }
                 } else {
-                    echo "Hello World";
+                    // echo "Hello World";
                     echo <<<HEREDOC
                     <script>
                         var err = document.getElementById('error');

@@ -20,7 +20,7 @@ session_start();
 <body class="text-center main-body">
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand hover-effect" href="../index.html" style="color:rgb(60, 98, 141)">
+            <a class="navbar-brand hover-effect" href="../index.php" style="color:rgb(60, 98, 141)">
                 <img src="../assets/images/logo.png" width="25" height="25" alt="..." />
                 WebCoursera
             </a>
@@ -97,7 +97,7 @@ if (isset($_POST["name"])) {
     $email = $_POST["email"];
     $pwd = $_POST["password"];
     $hash =  hash("sha256", $pwd);
-    $sql =  "INSERT INTO `user_detail` (`email`, `name`, `password`) 
+    $sql =  "INSERT INTO `user_detail` (`email`, `name`, `password`)
                VALUES ('$email', '$name', '$hash')";
     $flag = mysqli_query($conn, $sql);
     if ($flag) {

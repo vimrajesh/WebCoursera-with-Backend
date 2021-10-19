@@ -20,6 +20,6 @@ WebCoursera home page must display the icons for categories, search bar, login a
 4. In the footer section of the WebCoursera, provide the information for Terms, Privacy policy, Help and support, About us and Contact us.
 
 ## How to use it?
-- The landing page is **index.html** in root folder. 
+- The landing page is **index.php** in root folder. 
 - There are multiple courses hosted on it. Each course page has course recordings, references and info about the course. 
 - There are other helper pages as well like Login, Signup, Contact Us, About Us etc.
