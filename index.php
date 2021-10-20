@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="shortcut icon" type="image/png" href="assets/images/logo.png"/>
+    <link rel="shortcut icon" type="image/png" href="/webcoursera/assets/images/logo.png"/>
     <title>WebCoursera Home</title>
     <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
@@ -18,7 +18,7 @@
             href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
             rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css"/>
+    <link rel="stylesheet" href="/webcoursera/assets/css/styles.css"/>
 
 </head>
 <body>
@@ -54,7 +54,7 @@
                     style="width: 18rem"
             >
                 <img
-                        src="assets/images/HTML.png"
+                        src="/webcoursera/assets/images/HTML.png"
                         width="20%"
                         height="20%"
                         class="card-img-top"
@@ -152,7 +152,7 @@
                   </span>
                         </li>
                         <li class="list-group-item">
-                            <a href="courses/html_course.html" class="btn btn-primary view-course"
+                            <a href="/webcoursera/courses/html_course.html" class="btn btn-primary view-course"
                             >View Course</a
                             >
                         </li>
@@ -166,7 +166,7 @@
                     class="card text-center justify-content-center mx-auto border-2"
                     style="width: 18rem"
             >
-                <img src="assets/images/CSS.png" class="card-img-top" alt="#"/>
+                <img src="/webcoursera/assets/images/CSS.png" class="card-img-top" alt="#"/>
                 <h5 class="card-header text-center mt-2 bg-secondary text-white">
                     CSS
                 </h5>
@@ -247,7 +247,7 @@
                   </span>
                         </li>
                         <li class="list-group-item">
-                            <a href="courses/css_course.html" class="btn btn-primary view-course"
+                            <a href="/webcoursera/courses/css_course.html" class="btn btn-primary view-course"
                             >View Course</a
                             >
                         </li>
@@ -260,7 +260,7 @@
                     class="card text-center justify-content-center mx-auto border-2 pt-3"
                     style="width: 18rem"
             >
-                <img src="assets/images/JAVASCRIPT.png" class="card-img-top" alt="#"/>
+                <img src="/webcoursera/assets/images/JAVASCRIPT.png" class="card-img-top" alt="#"/>
                 <h5 class="card-header text-center mt-2 bg-secondary text-white">
                     Javascript
                 </h5>
@@ -342,7 +342,7 @@
                   </span>
                         </li>
                         <li class="list-group-item">
-                            <a href="courses/javascript_course.html" class="btn btn-primary view-course"
+                            <a href="/webcoursera/courses/javascript_course.html" class="btn btn-primary view-course"
                             >View Course</a
                             >
                         </li>
@@ -355,7 +355,7 @@
                     class="card text-center justify-content-center mx-auto border-2 pt-2"
                     style="width: 18rem"
             >
-                <img src="assets/images/JAVA.png" class="card-img-top" alt="#"/>
+                <img src="/webcoursera/assets/images/JAVA.png" class="card-img-top" alt="#"/>
                 <h5 class="card-header text-center mt-2 bg-secondary text-white">
                     Java
                 </h5>
@@ -436,7 +436,7 @@
                   </span>
                         </li>
                         <li class="list-group-item">
-                            <a href="courses/java_course.html" class="btn btn-primary view-course"
+                            <a href="/webcoursera/courses/java_course.html" class="btn btn-primary view-course"
                             >View Course</a
                             >
                         </li>
@@ -449,7 +449,7 @@
                     class="card text-center justify-content-center mx-auto border-2 pt-2"
                     style="width: 18rem"
             >
-                <img src="assets/images/AJAX.png" class="card-img-top" alt="#"/>
+                <img src="/webcoursera/assets/images/AJAX.png" class="card-img-top" alt="#"/>
                 <h5 class="card-header text-center mt-2 bg-secondary text-white">
                     AJAX
                 </h5>
@@ -531,7 +531,7 @@
                   </span>
                         </li>
                         <li class="list-group-item">
-                            <a href="courses/ajax_course.html" class="btn btn-primary view-course"
+                            <a href="/webcoursera/courses/ajax_course.html" class="btn btn-primary view-course"
                             >View Course</a
                             >
                         </li>
@@ -544,7 +544,7 @@
                     class="card text-center justify-content-center mx-auto border-2 pt-2"
                     style="width: 18rem"
             >
-                <img src="assets/images/PYTHON.png" class="card-img-top" alt="#"/>
+                <img src="/webcoursera/assets/images/PYTHON.png" class="card-img-top" alt="#"/>
                 <h5 class="card-header text-center mt-2 bg-secondary text-white">
                     Python
                 </h5>
@@ -626,7 +626,7 @@
                   </span>
                         </li>
                         <li class="list-group-item">
-                            <a href="courses/python_course.html" class="btn btn-primary view-course"
+                            <a href="/webcoursera/courses/python_course.html" class="btn btn-primary view-course"
                             >View Course</a
                             >
                         </li>
@@ -647,21 +647,21 @@
                 <p class="lead">Learn from the very best in the line of your field and domain, who have set an example
                     with their exemplary performances and achievements.</p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                    <a href="login/login.php" type="button" class="btn btn-outline-primary btn-lg px-4 me-md-2">Get
+                    <a href="/webcoursera/login/login.php" type="button" class="btn btn-outline-primary btn-lg px-4 me-md-2">Get
                         Started</a>
                     <a type="button" class="btn btn-outline-secondary btn-lg px-4" href="about_us.html">Know Who We
                         Are</a>
                 </div>
             </div>
             <div class="col-10 col-sm-8 col-lg-6">
-                <img src="assets/images/womenintech.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"
+                <img src="/webcoursera/assets/images/womenintech.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"
                      width="700" height="500" loading="lazy">
             </div>
         </div>
     </div>
 </a>
 <p id="footerLocation"></p>
-<script src="assets/js/index.js"></script>
+<script src="/webcoursera/assets/js/index.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"

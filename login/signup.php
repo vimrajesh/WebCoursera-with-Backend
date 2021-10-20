@@ -7,20 +7,20 @@ session_start();
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/png" href="../assets/images/logo.png" />
+    <link rel="shortcut icon" type="image/png" href="/webcoursera/assets/images/logo.png" />
     <title>WebCoursera Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/css/styles.css" />
+    <link rel="stylesheet" href="/webcoursera/assets/css/styles.css" />
 
 </head>
 
 <body class="text-center main-body">
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand hover-effect" href="../index.php" style="color:rgb(60, 98, 141)">
+            <a class="navbar-brand hover-effect" href="/webcoursera/index.php" style="color:rgb(60, 98, 141)">
                 <img src="../assets/images/logo.png" width="25" height="25" alt="..." />
                 WebCoursera
             </a>
@@ -66,14 +66,14 @@ session_start();
                     </div>
                     <div class="checkbox mb-3">
                         <label>
-                            <input type="checkbox" value="remember-me" required> I agree to the <a href="../terms.html"> Terms
+                            <input type="checkbox" value="remember-me" required> I agree to the <a href="/webcoursera/terms.html"> Terms
                                 and Conditions</a>.
                         </label>
                     </div>
                     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign Up</button>
                     <hr class="my-4">
                     <div>
-                        <small class="text-muted">Are you an Existing User? <a href="login.php"> Login</a></small>
+                        <small class="text-muted">Are you an Existing User? <a href="/webcoursera/login/login.php"> Login</a></small>
                         <div class="mt-2">
                             <small class="text-muted">
 
@@ -115,7 +115,7 @@ if (isset($_POST["name"])) {
         echo <<<HEREDOC
             <script>
                 var err = document.getElementById('error');
-                err.innerHTML = 'Email ID already used. Click <a href="login.php">here</a> to login.';
+                err.innerHTML = 'Email ID already used. Click <a href="/webcoursera/login/login.php">here</a> to login.';
                 err.style.display = 'block';
                 err.style.color = 'red';
             </script>

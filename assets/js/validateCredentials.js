@@ -96,7 +96,3 @@ function validate() {
 
     return true;
 }
-
-function invalidPassword(){
-    
-}
