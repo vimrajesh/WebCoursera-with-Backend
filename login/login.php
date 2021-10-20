@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand hover-effect" href="/webcoursera/index.php" style="color:rgb(60, 98, 141)">
-                <img src="../assets/images/logo.png" width="25" height="25" alt="..." />
+                <img src="/webcoursera/assets/images/logo.png" width="25" height="25" alt="..." />
                 WebCoursera
             </a>
         </div>
@@ -27,7 +27,7 @@
     <div class="container col-xl-10 col-xxl-8 px-4 py-0">
         <div class="row align-items-center g-lg-5 py-4">
             <div class="col-lg-7 text-center text-lg-start">
-                <img src="../assets/images/login_image.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="800" loading="lazy" style="opacity: 75%;">
+                <img src="/webcoursera/assets/images/login_image.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="800" loading="lazy" style="opacity: 75%;">
             </div>
             <div class="col-md-10 mx-auto col-lg-5">
 

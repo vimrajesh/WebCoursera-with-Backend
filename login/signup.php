@@ -21,7 +21,7 @@ session_start();
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand hover-effect" href="/webcoursera/index.php" style="color:rgb(60, 98, 141)">
-                <img src="../assets/images/logo.png" width="25" height="25" alt="..." />
+                <img src="/webcoursera/assets/images/logo.png" width="25" height="25" alt="..." />
                 WebCoursera
             </a>
         </div>
@@ -30,7 +30,7 @@ session_start();
     <div class="container col-xl-10 col-xxl-8 px-4 py-0">
         <div class="row align-items-center g-lg-5 py-4">
             <div class="col-lg-7 text-center text-lg-start">
-                <img src="../assets/images/login_image.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="800" loading="lazy" style="opacity: 75%;">
+                <img src="/webcoursera/assets/images/login_image.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="800" loading="lazy" style="opacity: 75%;">
             </div>
             <div class="col-md-10 mx-auto col-lg-5">
                 <form class="p-4 p-md-4 border rounded-3 bg-light" method="POST" onsubmit="return validate();">
@@ -85,12 +85,12 @@ session_start();
             </div>
         </div>
     </div>
-    <script src="../assets/js/validateCredentials.js"></script>
+    <script src="/webcoursera/assets/js/validateCredentials.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
 </body>
 <?php
-include '../assets/php/db_connection.php';
+include '/webcoursera/assets/php/db_connection.php';
 function unsetVariables()
     {
         unset($name);

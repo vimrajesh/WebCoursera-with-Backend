@@ -1,5 +1,6 @@
 /*jshint esversion: 6 */
 
+
 // To get a cookie in Javascript
 function getCookie(cname) {
     let name = cname + "=";
@@ -15,33 +16,115 @@ function getCookie(cname) {
     return "";
 }
 
-// function correctLinks(){
-//     if (window.location.href.indexOf("courses") !== -1) {
-//         // Anchor tag fixing
-//         var anchors = document.getElementsByTagName("a");
-//         for (var i = 0; i < anchors.length; i++) {
-//             let indexURL = anchors[i].href.lastIndexOf("/") + 1;
-//             anchors[i].href = anchors[i].href.substring(0, indexURL) + "../" + anchors[i].href.substring(indexURL)
-//         }
-    
-//         // Images fixing
-//         var images = document.getElementsByTagName("img");
-//         console.log("images");
-//         console.log("Hello")
-//         for (var i = 0; i < images.length; i++) {
-//             console.log("Hello")
-//             let linkImage = images[i].getAttribute("src");
-//             console.log(linkImage);
-//             if (linkImage.indexOf("courses") === -1) {
-//                 let indexImage = linkImage.indexOf("/assets") + 1;
-//                 images[i].setAttribute("src", linkImage.substring(0, indexImage) + "../" +
-//                     linkImage.substring(indexImage));
-//             }
-    
+function levenshtein(a, b) {
+    if (a.length === 0) return b.length;
+    if (b.length === 0) return a.length;
+
+    var matrix = [];
+
+    // increment along the first column of each row
+    var i;
+    for (i = 0; i <= b.length; i++) {
+        matrix[i] = [i];
+    }
+
+    // increment each column in the first row
+    var j;
+    for (j = 0; j <= a.length; j++) {
+        matrix[0][j] = j;
+    }
+
+    // Fill in the rest of the matrix
+    for (i = 1; i <= b.length; i++) {
+        for (j = 1; j <= a.length; j++) {
+            if (b.charAt(i - 1) == a.charAt(j - 1)) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            } else {
+                matrix[i][j] = Math.min(matrix[i - 1][j - 1] + 1, // substitution
+                    Math.min(matrix[i][j - 1] + 1, // insertion
+                        matrix[i - 1][j] + 1)); // deletion
+            }
+        }
+    }
+
+    return matrix[b.length][a.length];
+}
+
+// const levenshteinDistance = (s, t) => {
+//     if (!s.length) return t.length;
+//     if (!t.length) return s.length;
+//     const arr = [];
+//     for (let i = 0; i <= t.length; i++) {
+//         arr[i] = [i];
+//         for (let j = 1; j <= s.length; j++) {
+//             arr[i][j] =
+//                 i === 0
+//                     ? j
+//                     : Math.min(
+//                         arr[i - 1][j] + 1,
+//                         arr[i][j - 1] + 1,
+//                         arr[i - 1][j - 1] + (s[j - 1] === t[i - 1] ? 0 : 1)
+//                     );
 //         }
 //     }
-    
-// }
+//     return arr[t.length][s.length];
+// };
+
+const links = {
+    "html": "courses/html_course.html",
+    "hyper text markup language": "courses/html_course.html",
+    "ajax": "courses/ajax_course.html",
+    "python": "courses/python_course.html",
+    "java": "courses/java_course.html",
+    "cascading": "courses/css_course.html",
+    "stylesheets": "courses/css_course.html",
+    "css": "courses/css_course.html",
+    "javascript": "courses/javascript_course.html",
+    "homepage": "index.php",
+    "home": "index.php",
+    "terms": "terms.html",
+    "privacy policy": "privacy_policy.html",
+    "help and support": "faq.html",
+    "help": "faq.html",
+    "support": "faq.html",
+    "about us": "about_us.html",
+    "about": "about_us.html",
+    "contact us": "contact_us.html",
+    "contact": "contact_us.html",
+    "login": "login/login.php",
+    "sign in": "login/login.php",
+    "sign up": "login/signup.php"
+};
+
+function searchQuery() {
+    let q = document.querySelector("#SearchBar").value.trim().toLowerCase();
+    // console.log(q);
+    if(q.length < 2){
+        return false;
+    }
+    obj = Object.keys(links);
+    let textDiff = 999;
+    let searchText = "";
+    for (let i = 0; i < obj.length; i++) {
+        if (q === obj[i]) {
+            searchText = obj[i];
+            break;
+        }
+        let l = levenshtein(q, obj[i]);
+        // console.log(obj[i] + " : " + l);
+        if (l < textDiff) {
+            searchText = obj[i];
+            textDiff = l;
+        }
+    }
+    // console.log(links[searchText])
+    // setTimeout(() => {
+    //     location.href = '/webcoursera/' + links[searchText];
+    // }, 1500);
+    window.location.href = "/webcoursera/" + links[searchText];
+    return true;
+}
+
 
 // To set a cookie in Javascript
 function setCookie(cname, cvalue, exdays) {
@@ -160,19 +243,20 @@ document.querySelector("#headerLocation").innerHTML =
                             >
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input
-                                class="form-control me-2"
-                                type="search"
-                                placeholder="Search"
-                                id="SearchBar"
-                                aria-label="Search"
-                        />
-                        <button class="css-button-sliding-to-left--green me-2" type="submit">
-                            Search
-                        </button>
-
-                    </form>
+                    <div class="d-flex">
+                    <input
+                            class="form-control me-2"
+                            type="search"
+                            placeholder="Search"
+                            id="SearchBar"
+                            name="SearchBar"
+                            aria-label="Search"
+                    />
+                    <button class="css-button-sliding-to-left--green me-2"
+                    onclick="return searchQuery()">
+                        Search
+                    </button>
+                    </div>
                     <div class="d-flex justify-content-center login-front">
                         <a type="button" href="/webcoursera/login/login.php"
                         class="btn-md btn-nav btn btn-outline-info me-2 justify-content-evenly">
@@ -188,8 +272,23 @@ document.querySelector("#headerLocation").innerHTML =
         </nav>`;
 let user = getCookie("user");
 if (user !== "") {
-    document.querySelector(".login-front").innerHTML =
-        `
+    if (screen.width < 992) {
+        document.querySelector(".login-front").innerHTML =
+            `<a type="button" href="javascript:void(0)"
+        class="btn-md btn-nav btn btn-outline-info me-2 justify-content-evenly">
+                <img class="me-md-1" src="/webcoursera/assets/images/placeholder.png" width="25px" height="25px" alt="...">
+                <span class="style="color:white;">
+                ${user}
+        </a>
+        <a type="button" href="/webcoursera/login/logout.php"
+        class="btn-md btn-nav btn btn-outline-warning justify-content-evenly">
+            Logout
+        </a>
+        `;
+
+    } else {
+        document.querySelector(".login-front").innerHTML =
+            `
             <div class="collapse navbar-collapse me-md-2" id="navbarNavDarkDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
@@ -208,7 +307,9 @@ if (user !== "") {
             </ul>
 
             </div>
-          `;
+        `;
+
+    }
 }
 
 let docTitle = document.querySelector("title").innerText.toLowerCase();
@@ -218,4 +319,3 @@ for (let i = 0; i < navLinks.length; i++) {
         navLinks[i].classList.add("active");
     }
 }
-
