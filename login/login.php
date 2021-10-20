@@ -71,6 +71,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <?php
     include '../assets/php/db_connection.php';
+
+    function unsetVariables()
+    {
+        unset($email);
+        unset($pwd);
+        unset($hash);
+        unset($sql);
+        unset($result);
+        unset($flag);
+    }
+
     if (count($_POST) > 0) {
 
         $conn = OpenCon();
@@ -93,6 +104,8 @@
                         setcookie("user", explode(' ',trim($row1["name"]))[0], time() + (86400 * 30), "/"); 
                         // echo explode(' ',trim($row1["name"]))[0];
                         // echo "<script>setTimeout(\"location.href = '../index.php';\",1500);</script>";
+                        CloseCon($conn);
+                        unsetVariables();
                         header("Location:../index.php");
                     }
                 } else {
@@ -118,6 +131,7 @@
             </script>
             HEREDOC;
         }
+        unsetVariables();
         CloseCon($conn);
     }
     ?>

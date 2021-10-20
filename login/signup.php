@@ -91,6 +91,15 @@ session_start();
 </body>
 <?php
 include '../assets/php/db_connection.php';
+function unsetVariables()
+    {
+        unset($name);
+        unset($email);
+        unset($pwd);
+        unset($hash);
+        unset($sql);
+        unset($flag);
+    }
 $conn = OpenCon();
 if (isset($_POST["name"])) {
     $name = $_POST["name"];
@@ -102,7 +111,6 @@ if (isset($_POST["name"])) {
     $flag = mysqli_query($conn, $sql);
     if ($flag) {
         echo "<script>setTimeout(\"location.href = 'login.php';\",1500);</script>";
-        // header("Location:login.php");
     } else {
         echo <<<HEREDOC
             <script>
@@ -114,7 +122,7 @@ if (isset($_POST["name"])) {
             HEREDOC;
     }
 }
-
+unsetVariables();
 CloseCon($conn);
 ?>
 

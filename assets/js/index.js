@@ -5,7 +5,7 @@ function getCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
-    console.log(ca);
+    // console.log(ca);
     for (let i = 0; i < ca.length; i++) {
         let c = ca[i].trim();
         if (c.indexOf(name) == 0) {
@@ -161,11 +161,26 @@ if (document.querySelector("#footerLocation") !== null) {
     let user = getCookie("user");
     if (user !== "") {
         document.querySelector(".login-front").innerHTML =
-            `Welcome ${user}
-        <a type="button" href="login/logout.php"
-            class="btn-md btn-nav btn btn-outline-warning justify-content-evenly">
-            Logout
-        </a>`;
+            `
+            <div class="collapse navbar-collapse me-md-2" id="navbarNavDarkDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                    <img class="me-md-1" src="assets/images/placeholder.png" width="30px" height="30px" alt="...">
+                    <span class="style="color:white;">
+                    ${user}
+                </span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="login/logout.php">Logout</a></li>
+                </ul>
+                </li>
+            </ul>
+
+            </div>
+          `;
     }
 }
 
@@ -313,10 +328,25 @@ else {
     let user = getCookie("user");
     if (user !== "") {
         document.querySelector(".login-front").innerHTML =
-            `Welcome ${user}
-        <a type="button" href="../login/logout.php"
-            class="btn-md btn-nav btn btn-outline-warning justify-content-evenly">
-            Logout
-        </a>`;
+            `
+            <div class="collapse navbar-collapse me-md-2" id="navbarNavDarkDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                    <img class="me-md-1" src="../assets/images/placeholder.png" width="30px" height="30px" alt="...">
+                    <span class="style="color:white;">
+                    ${user}
+                </span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="../login/logout.php">Logout</a></li>
+                </ul>
+                </li>
+            </ul>
+
+            </div>
+        `;
     }
 }
