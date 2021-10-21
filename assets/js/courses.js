@@ -1,5 +1,5 @@
 $(window).on("load", function () {
-    let course_name = document.querySelector("title").innerText;
+    let course_name = $("title").innerText;
     let email = getCookie("email");
     $.ajax({
         method: "POST",
@@ -31,7 +31,7 @@ $(window).on("load", function () {
 })
 
 $("input:checkbox").change(function () {
-    let course_name = document.querySelector("title").innerText;
+    let course_name = $("title").innerText;
     let email = getCookie("email");
     let val = this.checked ? 1 : 0;
     let index = $(this).attr('name').replace(/[^0-9]/g, "");
@@ -57,7 +57,7 @@ $("input:checkbox").change(function () {
 });
 
 $("#registerButton").on("click", function () {
-    let course_name = document.querySelector("title").innerText;
+    let course_name = $("title").innerText;
     if (confirm(`Do you want to register for the ${course_name} course?`)) {
         let email = getCookie("email");
         $.ajax({
