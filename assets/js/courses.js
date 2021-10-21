@@ -50,3 +50,29 @@ $("input:checkbox").change(function () {
         }
     });
 });
+
+$("#registerButton").on("click", function () {
+    let course_name = document.querySelector("title").innerText;
+    let email = getCookie("email");
+    $.ajax({
+        method: "POST",
+        url: "registerCourse.php",
+        data: {
+            email: email,
+            course_name: course_name
+        },
+        success: function (data) {
+            if(data === "Successfully Registered."){
+                console.log("Success!");
+                // console.log(data)
+                $("#profile-tab").css("display", "block");
+                $("#contact-tab").css("display", "block");
+                $("#registerButton").css("display","none");    
+            }
+            else{
+                alert("Could not register. Try again.");
+            }
+            
+        }
+    });
+})
