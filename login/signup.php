@@ -90,7 +90,7 @@ session_start();
 
 </body>
 <?php
-include '/webcoursera/assets/php/db_connection.php';
+include '../assets/php/db_connection.php';
 function unsetVariables()
     {
         unset($name);
@@ -110,7 +110,10 @@ if (isset($_POST["name"])) {
                VALUES ('$email', '$name', '$hash')";
     $flag = mysqli_query($conn, $sql);
     if ($flag) {
-        echo "<script>setTimeout(\"location.href = 'login.php';\",1500);</script>";
+        echo "<script>
+            alert('Successfully Registered. You will be redirected to the login page shortly.');
+            setTimeout(\"location.href = 'login.php';\",1500);
+        </script>";
     } else {
         echo <<<HEREDOC
             <script>

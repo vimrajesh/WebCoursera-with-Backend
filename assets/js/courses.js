@@ -9,16 +9,20 @@ $(window).on("load", function () {
             course_name: course_name
         },
         success: function (data) {
-            // console.log(data);
-            let completion_status = data.split(" ");
-            let total_tasks = parseInt(completion_status[1]);
-            completion_status = completion_status[0];
-            // console.log(total_tasks)
-            let x = $("input:checkbox");
-            completion_status = completion_status.split(",");
-            for (let i = 0; i < total_tasks; i++) {
-                if (completion_status[i] == "1") {
-                    x[i].checked = true;
+            if (data === "Does not exist") {
+                $("#registerButton").css("display","block");
+                $("#profile-tab").css("display", "none");
+                $("#contact-tab").css("display", "none");
+            } else {
+                let completion_status = data.split(" ");
+                let total_tasks = parseInt(completion_status[1]);
+                completion_status = completion_status[0];
+                let x = $("input:checkbox");
+                completion_status = completion_status.split(",");
+                for (let i = 0; i < total_tasks; i++) {
+                    if (completion_status[i] == "1") {
+                        x[i].checked = true;
+                    }
                 }
             }
             console.log("Success!");

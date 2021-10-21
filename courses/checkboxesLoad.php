@@ -11,10 +11,15 @@
                         WHERE  user_enrolled_courses.email = '$email' AND 
                         courses.course_name = '$course_name'";
     $result = mysqli_query($conn, $select_query);
-    $row = mysqli_fetch_assoc($result);
-    $completion_status =$row["completion_status"];
-    $course_tasks = $row["course_tasks"];
-    echo $completion_status. " ". $course_tasks;
+    if(mysqli_num_rows($result) > 0){
+        $row = mysqli_fetch_assoc($result);
+        $completion_status =$row["completion_status"];
+        $course_tasks = $row["course_tasks"];
+        echo $completion_status. " ". $course_tasks;
+    }
+    else{
+        echo "Does not exist";
+    }
     
     CloseCon($conn);
 ?>
