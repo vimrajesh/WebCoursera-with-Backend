@@ -97,7 +97,7 @@ const links = {
 };
 
 function searchQuery() {
-    let q = document.querySelector("#SearchBar").value.trim().toLowerCase();
+    let q = document.querySelector("#SearchBar").value.trim().toLowerCase().replace(/[^\w ]/, '');
     // console.log(q);
     if(q.length < 2){
         return false;
