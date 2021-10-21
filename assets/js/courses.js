@@ -45,7 +45,12 @@ $("input:checkbox").change(function () {
             index: index,
             course_name: course_name
         },
-        success: function () {
+        success: function (data) {
+            if(data.match(/^All tasks/)){
+                if(!alert(data)){
+                    window.location.reload();
+                }                
+            }
             console.log("Success!");
         }
     });
