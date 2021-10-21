@@ -152,7 +152,7 @@
                   </span>
                         </li>
                         <li class="list-group-item">
-                            <a href="/webcoursera/courses/html_course.html" class="btn btn-primary view-course"
+                            <a href="/webcoursera/courses/html_course.php" class="btn btn-primary view-course"
                             >View Course</a
                             >
                         </li>
@@ -247,7 +247,7 @@
                   </span>
                         </li>
                         <li class="list-group-item">
-                            <a href="/webcoursera/courses/css_course.html" class="btn btn-primary view-course"
+                            <a href="/webcoursera/courses/css_course.php" class="btn btn-primary view-course"
                             >View Course</a
                             >
                         </li>
@@ -342,7 +342,7 @@
                   </span>
                         </li>
                         <li class="list-group-item">
-                            <a href="/webcoursera/courses/javascript_course.html" class="btn btn-primary view-course"
+                            <a href="/webcoursera/courses/javascript_course.php" class="btn btn-primary view-course"
                             >View Course</a
                             >
                         </li>
@@ -436,7 +436,7 @@
                   </span>
                         </li>
                         <li class="list-group-item">
-                            <a href="/webcoursera/courses/java_course.html" class="btn btn-primary view-course"
+                            <a href="/webcoursera/courses/java_course.php" class="btn btn-primary view-course"
                             >View Course</a
                             >
                         </li>
@@ -531,7 +531,7 @@
                   </span>
                         </li>
                         <li class="list-group-item">
-                            <a href="/webcoursera/courses/ajax_course.html" class="btn btn-primary view-course"
+                            <a href="/webcoursera/courses/ajax_course.php" class="btn btn-primary view-course"
                             >View Course</a
                             >
                         </li>
@@ -626,7 +626,7 @@
                   </span>
                         </li>
                         <li class="list-group-item">
-                            <a href="/webcoursera/courses/python_course.html" class="btn btn-primary view-course"
+                            <a href="/webcoursera/courses/python_course.php" class="btn btn-primary view-course"
                             >View Course</a
                             >
                         </li>

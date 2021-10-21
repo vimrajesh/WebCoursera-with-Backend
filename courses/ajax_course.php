@@ -328,6 +328,7 @@
     </div>
 </div>
 <p id="footerLocation"></p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/webcoursera/assets/js/index.js"></script>
 <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"

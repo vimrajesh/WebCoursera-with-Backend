@@ -71,15 +71,15 @@ function levenshtein(a, b) {
 // };
 
 const links = {
-    "html": "courses/html_course.html",
-    "hyper text markup language": "courses/html_course.html",
-    "ajax": "courses/ajax_course.html",
-    "python": "courses/python_course.html",
-    "java": "courses/java_course.html",
-    "cascading": "courses/css_course.html",
-    "stylesheets": "courses/css_course.html",
-    "css": "courses/css_course.html",
-    "javascript": "courses/javascript_course.html",
+    "html": "courses/html_course.php",
+    "hyper text markup language": "courses/html_course.php",
+    "ajax": "courses/ajax_course.php",
+    "python": "courses/python_course.php",
+    "java": "courses/java_course.php",
+    "cascading": "courses/css_course.php",
+    "stylesheets": "courses/css_course.php",
+    "css": "courses/css_course.php",
+    "javascript": "courses/javascript_course.php",
     "homepage": "index.php",
     "home": "index.php",
     "terms": "terms.html",
@@ -142,12 +142,12 @@ document.querySelector("#footerLocation").innerHTML =
                 <div class="col-sm-6 col-md-3 mb-2 mx-4">
                     <h5>Browse</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="/webcoursera/courses/html_course.html" class="nav-link p-0">HTML</a></li>
-                        <li class="nav-item mb-2"><a href="/webcoursera/courses/css_course.html" class="nav-link p-0">CSS</a></li>
-                        <li class="nav-item mb-2"><a href="/webcoursera/courses/javascript_course.html" class="nav-link p-0">JavaScript</a></li>
-                        <li class="nav-item mb-2"><a href="/webcoursera/courses/java_course.html" class="nav-link p-0">Java</a></li>
-                        <li class="nav-item mb-2"><a href="/webcoursera/courses/ajax_course.html" class="nav-link p-0">AJAX</a></li>
-                        <li class="nav-item mb-2"><a href="/webcoursera/courses/python_course.html" class="nav-link p-0">Python</a></li>
+                        <li class="nav-item mb-2"><a href="/webcoursera/courses/html_course.php" class="nav-link p-0">HTML</a></li>
+                        <li class="nav-item mb-2"><a href="/webcoursera/courses/css_course.php" class="nav-link p-0">CSS</a></li>
+                        <li class="nav-item mb-2"><a href="/webcoursera/courses/javascript_course.php" class="nav-link p-0">JavaScript</a></li>
+                        <li class="nav-item mb-2"><a href="/webcoursera/courses/java_course.php" class="nav-link p-0">Java</a></li>
+                        <li class="nav-item mb-2"><a href="/webcoursera/courses/ajax_course.php" class="nav-link p-0">AJAX</a></li>
+                        <li class="nav-item mb-2"><a href="/webcoursera/courses/python_course.php" class="nav-link p-0">Python</a></li>
                     </ul>
                 </div>
 
@@ -221,24 +221,24 @@ document.querySelector("#headerLocation").innerHTML =
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li>
-                            <a class="nav-link hover-effect" href="/webcoursera/courses/html_course.html">HTML</a>
+                            <a class="nav-link hover-effect" href="/webcoursera/courses/html_course.php">HTML</a>
                         </li>
                         <li>
-                            <a class="nav-link hover-effect" href="/webcoursera/courses/css_course.html">CSS</a>
+                            <a class="nav-link hover-effect" href="/webcoursera/courses/css_course.php">CSS</a>
                         </li>
                         <li>
-                            <a class="nav-link hover-effect" href="/webcoursera/courses/javascript_course.html"
+                            <a class="nav-link hover-effect" href="/webcoursera/courses/javascript_course.php"
                             >JavaScript</a
                             >
                         </li>
                         <li>
-                            <a class="nav-link hover-effect" href="/webcoursera/courses/java_course.html"> Java</a>
+                            <a class="nav-link hover-effect" href="/webcoursera/courses/java_course.php"> Java</a>
                         </li>
                         <li>
-                            <a class="nav-link hover-effect" href="/webcoursera/courses/ajax_course.html">AJAX</a>
+                            <a class="nav-link hover-effect" href="/webcoursera/courses/ajax_course.php">AJAX</a>
                         </li>
                         <li>
-                            <a class="nav-link hover-effect" href="/webcoursera/courses/python_course.html"
+                            <a class="nav-link hover-effect" href="/webcoursera/courses/python_course.php"
                             >Python</a
                             >
                         </li>
