@@ -70,7 +70,6 @@ $("#registerButton").on("click", function () {
             success: function (data) {
                 if(data === "Successfully Registered."){
                     console.log("Success!");
-                    // console.log(data)
                     $("#profile-tab").css("display", "block");
                     $("#contact-tab").css("display", "block");
                     $("#registerButton").css("display","none");    
