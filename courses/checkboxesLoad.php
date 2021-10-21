@@ -14,6 +14,7 @@
     $row = mysqli_fetch_assoc($result);
     $completion_status =$row["completion_status"];
     $course_tasks = $row["course_tasks"];
-    echo $completion_status. " ". $course_tasks;;
+    echo $completion_status. " ". $course_tasks;
     
     CloseCon($conn);
+?>
