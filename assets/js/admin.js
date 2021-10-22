@@ -52,8 +52,8 @@ function levenshtein(a, b) {
 const links = {
     "home": "admin_home.php",
     "dashoboard": "admin_home.php",
-    "design": "db_design.html",
-    "db": "db_design.html",
+    "design": "db_design.php",
+    "db": "db_design.php",
     "courses": "monitor_courses.html",
     "monitor courses": "monitor_courses.html",
     "sql": "sql_query.php",
@@ -188,7 +188,7 @@ document.querySelector("#headerLocation").innerHTML =
                             <a class="nav-link hover-effect" href="/webcoursera/admin/monitor_courses.php">Monitor Courses</a>
                         </li>
                         <li>
-                            <a class="nav-link hover-effect" href="/webcoursera/admin/db_design.html">
+                            <a class="nav-link hover-effect" href="/webcoursera/admin/db_design.php">
                                 DB Design
                             </a>
                         </li>
