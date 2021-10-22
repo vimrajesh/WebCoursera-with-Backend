@@ -22,9 +22,9 @@
   <body>
     <header id="headerLocation"></header>
     <div class="container mt-4 mb-5" id="profileCourses">
-        <h1 class="display-4" style="font-weight: 500;">Courses Registered</h1>
-        <hr>
-        
+      <h1 class="display-4" style="font-weight: 500">Courses Registered</h1>
+      <hr id="hrBreak" />
+      
     </div>
     <p id="footerLocation"></p>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

@@ -300,7 +300,7 @@ if (user !== "") {
                 </span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                    <li><a class="dropdown-item" href="javascript:void(0)">Profile</a></li>
+                    <li><a class="dropdown-item" href="/webcoursera/profile.php">Profile</a></li>
                     <li><a class="dropdown-item" href="/webcoursera/login/logout.php">Logout</a></li>
                 </ul>
                 </li>
