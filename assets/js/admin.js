@@ -1,5 +1,4 @@
 /*jshint esversion: 6 */
-console.log("SUCSS")
 
 // To get a cookie in Javascript
 function getCookie(cname) {
@@ -50,26 +49,6 @@ function levenshtein(a, b) {
     return matrix[b.length][a.length];
 }
 
-// const levenshteinDistance = (s, t) => {
-//     if (!s.length) return t.length;
-//     if (!t.length) return s.length;
-//     const arr = [];
-//     for (let i = 0; i <= t.length; i++) {
-//         arr[i] = [i];
-//         for (let j = 1; j <= s.length; j++) {
-//             arr[i][j] =
-//                 i === 0
-//                     ? j
-//                     : Math.min(
-//                         arr[i - 1][j] + 1,
-//                         arr[i][j - 1] + 1,
-//                         arr[i - 1][j - 1] + (s[j - 1] === t[i - 1] ? 0 : 1)
-//                     );
-//         }
-//     }
-//     return arr[t.length][s.length];
-// };
-
 const links = {
     "home": "admin_home.php",
     "dashoboard": "admin_home.php",
@@ -103,7 +82,7 @@ function searchQuery() {
             textDiff = l;
         }
     }
-    window.location.href = "/webcoursera/" + links[searchText];
+    window.location.href = "/webcoursera/admin/" + links[searchText];
     return true;
 }
 
@@ -294,3 +273,132 @@ for (let i = 0; i < navLinks.length; i++) {
         navLinks[i].classList.add("active");
     }
 }
+
+
+$(window).on("load", function () {
+    if (getCookie("user") !== "admin") {
+        alert("Not authenticated as admin.");
+        window.location.href = "/webcoursera/index.php";
+    } else {
+        $.ajax({
+            method: "POST",
+            url: "load_registered_users.php",
+            data: {
+            },
+            success: function (data) {
+                if (data === "Does not exist") {
+                    $(
+                        `<div class="my-5" style="font-size: 1.5em;">
+                            You have not registered for any courses yet. Kindly visit 
+                            <a href="/webcoursera/index.php">homepage</a> to view all available courses.
+                        </div>
+                        `
+                    ).insertAfter("#hrBreak")
+                    $("#footerLocation").css("position", "fixed");
+                    $("#footerLocation").css("bottom", "0px");
+                    $("#footerLocation").css("left", "0px");
+                    $("#footerLocation").css("right", "0px");
+                    $("#footerLocation").css("margin-bottom", "0px");
+                } else {
+                    let response = JSON.parse(data);
+                    let keys = Object.keys(response[0]);
+                    let finalHTML = ["<table id='example'>", "<thead>", "<tr>"];
+                    for (let i = 0; i < keys.length; i++) {
+                        finalHTML.push(`<th>${keys[i].toUpperCase()}</th>`)
+                    }
+                    finalHTML.push("</tr><tbody>");
+                    for (let i = 0; i < response.length; i++) {
+                        finalHTML.push("<tr>");
+                        for (let j = 0; j < keys.length; j++) {
+                            finalHTML.push(`<td>${response[i][keys[j]]}</td>`);
+                        }
+                        finalHTML.push("</tr>");
+                    }
+                    finalHTML.push("</tbody></table>")
+                    document.querySelector("#tableSample").innerHTML = finalHTML.join("\n");
+                      
+                    let myTable =
+                        new JSTable("#example", {
+                            perPage: 5,
+                            perPageSelect: [5, 10, 15, 20, 25],
+                            nextPrev: true,
+                            firstLast: false,
+                            prevText: "&lsaquo;",
+                            nextText: "&rsaquo;",
+                            firstText: "&laquo;",
+                            lastText: "&raquo;",
+                            ellipsisText: "&hellip;",
+                            truncatePager: true,
+                            pagerDelta: 2,
+                            searchable: true,
+                            sortable: true,
+                            top: "dt-top",
+                            info: "dt-info",
+                            input: "dt-input",
+                            table: "dt-table",
+                            bottom: "dt-bottom",
+                            search: "dt-search",
+                            sorter: "dt-sorter",
+                            wrapper: "dt-wrapper",
+                            dropdown: "dt-dropdown",
+                            ellipsis: "dt-ellipsis",
+                            selector: "dt-selector",
+                            container: "dt-container",
+                            pagination: "dt-pagination",
+                            loading: "dt-loading",
+                            message: "dt-message",
+                            labels: {
+                                placeholder: "Search...",
+                                perPage: "{select} entries per page",
+                                noRows: "No entries found",
+                                info: "Showing {start} to {end} of {rows} entries",
+                                loading: "Loading...",
+                                infoFiltered: "Showing {start} to {end} of {rows} entries (filtered from {rowsTotal} entries)"
+                            }, layout: {
+                                top: "{select}{search}",
+                                bottom: "{info}{pager}"
+                            },
+                        });
+
+                    myTable.on("init", function () {
+                        // on init
+                    });
+
+                    myTable.on("update", function () {
+                        // when the data is updated
+                    });
+
+                    myTable.on("getData", function (dataRows) {
+                        // when the data is processed
+                    });
+
+                    myTable.on("fetchData", function (serverData) {
+                        // when the data is fetched from the server
+                    });
+
+                    myTable.on("search", function (query) {
+                        // after filtering
+                    });
+
+                    myTable.on("sort", function (column, direction) {
+                        // after the data is sorted
+                    });
+
+                    myTable.on("paginate", function (old_page, new_page) {
+                        console.log(old_page);
+                        console.log(new_page);
+                    });
+
+                    myTable.on("perPageChange", function (old_value, new_value) {
+                        console.log(old_value);
+                        console.log(new_value);
+                    });
+                }
+
+
+
+                console.log("Success!");
+            }
+        });
+    }
+})
