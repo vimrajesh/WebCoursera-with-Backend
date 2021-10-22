@@ -261,6 +261,100 @@ if (user === "Admin") {
             alert("Not authenticated as admin.");
             window.location.href = "/webcoursera/index.php";
         } else {
+            function tableGenerator(response) {
+                let keys = Object.keys(response[0]);
+                let finalHTML = ["<table id='example'>", "<thead>", "<tr>"];
+                for (let i = 0; i < keys.length; i++) {
+                    finalHTML.push(`<th>${keys[i].toUpperCase()}</th>`);
+                }
+                finalHTML.push("</tr><tbody>");
+                for (let i = 0; i < response.length; i++) {
+                    finalHTML.push("<tr>");
+                    for (let j = 0; j < keys.length; j++) {
+                        finalHTML.push(`<td>${response[i][keys[j]]}</td>`);
+                    }
+                    finalHTML.push("</tr>");
+                }
+                finalHTML.push("</tbody></table>");
+                document.querySelector("#tableSample").innerHTML = finalHTML.join("\n");
+
+                let myTable =
+                    new JSTable("#example", {
+                        perPage: 5,
+                        perPageSelect: [5, 10, 15, 20, 25],
+                        nextPrev: true,
+                        firstLast: false,
+                        prevText: "&lsaquo;",
+                        nextText: "&rsaquo;",
+                        firstText: "&laquo;",
+                        lastText: "&raquo;",
+                        ellipsisText: "&hellip;",
+                        truncatePager: true,
+                        pagerDelta: 2,
+                        searchable: true,
+                        sortable: true,
+                        top: "dt-top",
+                        info: "dt-info",
+                        input: "dt-input",
+                        table: "dt-table",
+                        bottom: "dt-bottom",
+                        search: "dt-search",
+                        sorter: "dt-sorter",
+                        wrapper: "dt-wrapper",
+                        dropdown: "dt-dropdown",
+                        ellipsis: "dt-ellipsis",
+                        selector: "dt-selector",
+                        container: "dt-container",
+                        pagination: "dt-pagination",
+                        loading: "dt-loading",
+                        message: "dt-message",
+                        labels: {
+                            placeholder: "Search...",
+                            perPage: "{select} entries per page",
+                            noRows: "No entries found",
+                            info: "Showing {start} to {end} of {rows} entries",
+                            loading: "Loading...",
+                            infoFiltered: "Showing {start} to {end} of {rows} entries (filtered from {rowsTotal} entries)"
+                        }, layout: {
+                            top: "{select}{search}",
+                            bottom: "{info}{pager}"
+                        },
+                    });
+
+                myTable.on("init", function () {
+                    // on init
+                });
+
+                myTable.on("update", function () {
+                    // when the data is updated
+                });
+
+                myTable.on("getData", function (dataRows) {
+                    // when the data is processed
+                });
+
+                myTable.on("fetchData", function (serverData) {
+                    // when the data is fetched from the server
+                });
+
+                myTable.on("search", function (query) {
+                    // after filtering
+                });
+
+                myTable.on("sort", function (column, direction) {
+                    // after the data is sorted
+                });
+
+                myTable.on("paginate", function (old_page, new_page) {
+                    console.log(old_page);
+                    console.log(new_page);
+                });
+
+                myTable.on("perPageChange", function (old_value, new_value) {
+                    console.log(old_value);
+                    console.log(new_value);
+                });
+            }
             if (document.querySelector("title").innerText.toLowerCase() === "home") {
                 $.ajax({
                     method: "POST",
@@ -276,103 +370,8 @@ if (user === "Admin") {
                                     `
                             ).insertAfter("#hrBreak");
                         } else {
-                            let response = JSON.parse(data);
-                            let keys = Object.keys(response[0]);
-                            let finalHTML = ["<table id='example'>", "<thead>", "<tr>"];
-                            for (let i = 0; i < keys.length; i++) {
-                                finalHTML.push(`<th>${keys[i].toUpperCase()}</th>`);
-                            }
-                            finalHTML.push("</tr><tbody>");
-                            for (let i = 0; i < response.length; i++) {
-                                finalHTML.push("<tr>");
-                                for (let j = 0; j < keys.length; j++) {
-                                    finalHTML.push(`<td>${response[i][keys[j]]}</td>`);
-                                }
-                                finalHTML.push("</tr>");
-                            }
-                            finalHTML.push("</tbody></table>");
-                            document.querySelector("#tableSample").innerHTML = finalHTML.join("\n");
-
-                            let myTable =
-                                new JSTable("#example", {
-                                    perPage: 5,
-                                    perPageSelect: [5, 10, 15, 20, 25],
-                                    nextPrev: true,
-                                    firstLast: false,
-                                    prevText: "&lsaquo;",
-                                    nextText: "&rsaquo;",
-                                    firstText: "&laquo;",
-                                    lastText: "&raquo;",
-                                    ellipsisText: "&hellip;",
-                                    truncatePager: true,
-                                    pagerDelta: 2,
-                                    searchable: true,
-                                    sortable: true,
-                                    top: "dt-top",
-                                    info: "dt-info",
-                                    input: "dt-input",
-                                    table: "dt-table",
-                                    bottom: "dt-bottom",
-                                    search: "dt-search",
-                                    sorter: "dt-sorter",
-                                    wrapper: "dt-wrapper",
-                                    dropdown: "dt-dropdown",
-                                    ellipsis: "dt-ellipsis",
-                                    selector: "dt-selector",
-                                    container: "dt-container",
-                                    pagination: "dt-pagination",
-                                    loading: "dt-loading",
-                                    message: "dt-message",
-                                    labels: {
-                                        placeholder: "Search...",
-                                        perPage: "{select} entries per page",
-                                        noRows: "No entries found",
-                                        info: "Showing {start} to {end} of {rows} entries",
-                                        loading: "Loading...",
-                                        infoFiltered: "Showing {start} to {end} of {rows} entries (filtered from {rowsTotal} entries)"
-                                    }, layout: {
-                                        top: "{select}{search}",
-                                        bottom: "{info}{pager}"
-                                    },
-                                });
-
-                            myTable.on("init", function () {
-                                // on init
-                            });
-
-                            myTable.on("update", function () {
-                                // when the data is updated
-                            });
-
-                            myTable.on("getData", function (dataRows) {
-                                // when the data is processed
-                            });
-
-                            myTable.on("fetchData", function (serverData) {
-                                // when the data is fetched from the server
-                            });
-
-                            myTable.on("search", function (query) {
-                                // after filtering
-                            });
-
-                            myTable.on("sort", function (column, direction) {
-                                // after the data is sorted
-                            });
-
-                            myTable.on("paginate", function (old_page, new_page) {
-                                console.log(old_page);
-                                console.log(new_page);
-                            });
-
-                            myTable.on("perPageChange", function (old_value, new_value) {
-                                console.log(old_value);
-                                console.log(new_value);
-                            });
+                            tableGenerator(JSON.parse(data));
                         }
-
-
-
                         console.log("Success!");
                     }
                 });
@@ -391,103 +390,8 @@ if (user === "Admin") {
                                     `
                             ).insertAfter("#hrBreak");
                         } else {
-                            let response = JSON.parse(data);
-                            let keys = Object.keys(response[0]);
-                            let finalHTML = ["<table id='example'>", "<thead>", "<tr>"];
-                            for (let i = 0; i < keys.length; i++) {
-                                finalHTML.push(`<th>${keys[i].toUpperCase()}</th>`);
-                            }
-                            finalHTML.push("</tr><tbody>");
-                            for (let i = 0; i < response.length; i++) {
-                                finalHTML.push("<tr>");
-                                for (let j = 0; j < keys.length; j++) {
-                                    finalHTML.push(`<td>${response[i][keys[j]]}</td>`);
-                                }
-                                finalHTML.push("</tr>");
-                            }
-                            finalHTML.push("</tbody></table>");
-                            document.querySelector("#tableSample").innerHTML = finalHTML.join("\n");
-
-                            let myTable =
-                                new JSTable("#example", {
-                                    perPage: 5,
-                                    perPageSelect: [5, 10, 15, 20, 25],
-                                    nextPrev: true,
-                                    firstLast: false,
-                                    prevText: "&lsaquo;",
-                                    nextText: "&rsaquo;",
-                                    firstText: "&laquo;",
-                                    lastText: "&raquo;",
-                                    ellipsisText: "&hellip;",
-                                    truncatePager: true,
-                                    pagerDelta: 2,
-                                    searchable: true,
-                                    sortable: true,
-                                    top: "dt-top",
-                                    info: "dt-info",
-                                    input: "dt-input",
-                                    table: "dt-table",
-                                    bottom: "dt-bottom",
-                                    search: "dt-search",
-                                    sorter: "dt-sorter",
-                                    wrapper: "dt-wrapper",
-                                    dropdown: "dt-dropdown",
-                                    ellipsis: "dt-ellipsis",
-                                    selector: "dt-selector",
-                                    container: "dt-container",
-                                    pagination: "dt-pagination",
-                                    loading: "dt-loading",
-                                    message: "dt-message",
-                                    labels: {
-                                        placeholder: "Search...",
-                                        perPage: "{select} entries per page",
-                                        noRows: "No entries found",
-                                        info: "Showing {start} to {end} of {rows} entries",
-                                        loading: "Loading...",
-                                        infoFiltered: "Showing {start} to {end} of {rows} entries (filtered from {rowsTotal} entries)"
-                                    }, layout: {
-                                        top: "{select}{search}",
-                                        bottom: "{info}{pager}"
-                                    },
-                                });
-
-                            myTable.on("init", function () {
-                                // on init
-                            });
-
-                            myTable.on("update", function () {
-                                // when the data is updated
-                            });
-
-                            myTable.on("getData", function (dataRows) {
-                                // when the data is processed
-                            });
-
-                            myTable.on("fetchData", function (serverData) {
-                                // when the data is fetched from the server
-                            });
-
-                            myTable.on("search", function (query) {
-                                // after filtering
-                            });
-
-                            myTable.on("sort", function (column, direction) {
-                                // after the data is sorted
-                            });
-
-                            myTable.on("paginate", function (old_page, new_page) {
-                                console.log(old_page);
-                                console.log(new_page);
-                            });
-
-                            myTable.on("perPageChange", function (old_value, new_value) {
-                                console.log(old_value);
-                                console.log(new_value);
-                            });
+                            tableGenerator(JSON.parse(data));
                         }
-
-
-
                         console.log("Success!");
                     }
                 });
