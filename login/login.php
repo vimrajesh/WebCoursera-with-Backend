@@ -107,7 +107,12 @@
                         // echo "<script>setTimeout(\"location.href = '../index.php';\",1500);</script>";
                         CloseCon($conn);
                         unsetVariables();
-                        header("Location:../index.php");
+                        if($email == "admin@webcoursera.com"){
+                            header("Location:../admin/admin_home.php");
+                        } else{
+                            header("Location:../index.php");
+                        }
+                        
                     }
                 } else {
                     // echo "Hello World";

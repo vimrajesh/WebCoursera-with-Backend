@@ -41,3 +41,4 @@
     }
     
     CloseCon($conn);
+?>
