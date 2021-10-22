@@ -5,7 +5,7 @@
     $email = $_POST["email"];
 
     $select_query = "SELECT c.course_name, c.course_description, c.course_tasks,
-                        cf.name, u.completion_status, c.url, c.image
+                        cf.name, cf.university, cf.designation, u.completion_status, c.url, c.image
                         from user_enrolled_courses as u JOIN courses as c
                         JOIN course_faculty as cf
                         ON u.course_id = c.course_id
@@ -26,6 +26,8 @@
                 "course_description" => $row["course_description"],
                 "course_tasks" => $row["course_tasks"],
                 "fac_name" => $row["name"],
+                "designation" => $row["designation"],
+                "university" => $row["university"],
                 "completion_status" => $row["completion_status"],
                 "url" => $row["url"],
                 "image" => $row["image"])
