@@ -261,22 +261,8 @@ if (user === "Admin") {
             alert("Not authenticated as admin.");
             window.location.href = "/webcoursera/index.php";
         } else {
-            function tableGenerator(response) {
-                let keys = Object.keys(response[0]);
-                let finalHTML = ["<table id='example'>", "<thead>", "<tr>"];
-                for (let i = 0; i < keys.length; i++) {
-                    finalHTML.push(`<th>${keys[i].toUpperCase()}</th>`);
-                }
-                finalHTML.push("</tr><tbody>");
-                for (let i = 0; i < response.length; i++) {
-                    finalHTML.push("<tr>");
-                    for (let j = 0; j < keys.length; j++) {
-                        finalHTML.push(`<td>${response[i][keys[j]]}</td>`);
-                    }
-                    finalHTML.push("</tr>");
-                }
-                finalHTML.push("</tbody></table>");
-                document.querySelector("#tableSample").innerHTML = finalHTML.join("\n");
+            function utilityTable(finalHTML) {
+                document.querySelector("#tableSample").innerHTML = finalHTML;
 
                 let myTable =
                     new JSTable("#example", {
@@ -355,6 +341,23 @@ if (user === "Admin") {
                     console.log(new_value);
                 });
             }
+            function tableGenerator(response) {
+                let keys = Object.keys(response[0]);
+                let finalHTML = ["<table id='example'>", "<thead>", "<tr>"];
+                for (let i = 0; i < keys.length; i++) {
+                    finalHTML.push(`<th>${keys[i].toUpperCase()}</th>`);
+                }
+                finalHTML.push("</tr><tbody>");
+                for (let i = 0; i < response.length; i++) {
+                    finalHTML.push("<tr>");
+                    for (let j = 0; j < keys.length; j++) {
+                        finalHTML.push(`<td>${response[i][keys[j]]}</td>`);
+                    }
+                    finalHTML.push("</tr>");
+                }
+                finalHTML.push("</tbody></table>");
+                utilityTable(finalHTML.join("\n"));
+            }
             if (document.querySelector("title").innerText.toLowerCase() === "home") {
                 $.ajax({
                     method: "POST",
@@ -394,6 +397,35 @@ if (user === "Admin") {
                         }
                         console.log("Success!");
                     }
+                });
+            } else if (document.querySelector("title").innerText.toLowerCase() === "sql query") {
+                $("#submitButton").on("click", function () {
+                    let queryProvided = document.querySelector("#query").value;
+                    if (queryProvided.trim() === "") {
+                        $("#queryDetails")[0].innerHTML = "";
+                        $("#tableSample")[0].innerHTML = `<b>Empty query is not accepted.</b>`;
+                    } else {
+                        $.ajax({
+                            method: "POST",
+                            url: "query.php",
+                            data: {
+                                query: queryProvided
+                            },
+                            success: function (data) {
+                                
+                                $("#queryDetails")[0].innerHTML = `The query provided was: <br>${queryProvided}`;
+                                if (data.match(/ERROR:/)) {
+                                    $("#tableSample")[0].innerHTML = `<b>${data}</b>`;
+                                } else {
+                                    utilityTable(data);
+                                }
+                                console.log("Success!");
+                            }
+                        });
+                    }
+                });
+                $("#resetButton").on("click", function () {
+                    document.querySelector("#query").value = "";
                 });
             }
         }
