@@ -103,9 +103,7 @@
                     while ($row1 = mysqli_fetch_assoc($result1)) {
                         setcookie("user", explode(' ',trim($row1["name"]))[0], time() + (86400 * 30), "/"); 
                         setcookie("email", $email, time() + (86400 * 30), "/"); 
-                        // echo explode(' ',trim($row1["name"]))[0];
-                        // echo "<script>setTimeout(\"location.href = '../index.php';\",1500);</script>";
-                        CloseCon($conn);
+                          CloseCon($conn);
                         unsetVariables();
                         if($email == "admin@webcoursera.com"){
                             header("Location:../admin/admin_home.php");

@@ -9,34 +9,24 @@ $(window).on("load", function () {
         success: function (data) {
             if (data === "Does not exist") {
                 $(
-                    `<div class="my-5" style="font-size: 1.5em;">
+                    `<div class="my-5" style="font-size: 1.25em;">
                         You have not registered for any courses yet. Kindly visit 
                         <a href="/webcoursera/index.php">homepage</a> to view all available courses.
                     </div>
                     `
-                ).insertAfter("#hrBreak")
-                $("#footerLocation").css("position","fixed");
-                $("#footerLocation").css("bottom","0px");
-                $("#footerLocation").css("left","0px");
-                $("#footerLocation").css("right","0px");
-                $("#footerLocation").css("margin-bottom","0px");
-
-                
+                ).insertAfter("#hrBreak");
+                if (screen.width >= 992) {
+                    $("#footerLocation").css("position", "fixed");
+                    $("#footerLocation").css("bottom", "0px");
+                    $("#footerLocation").css("left", "0px");
+                    $("#footerLocation").css("right", "0px");
+                    $("#footerLocation").css("margin-bottom", "0px");
+                }
             } else {
-                // console.log("helloelse");
-                // alert(JSON.stringify(data));
                 let response = JSON.parse(data);
                 response.forEach(element => {
-                    console.log(element);
-                    // completion_status: "0,0,0,0,0,0,0,0,0,0,0,0"
-                    // course_description: "Basic Introductory Course to the widely used Hyper Text Markup Language (HTML)."
-                    // course_name: "HTML"
-                    // course_tasks: "12"
-                    // fac_name: "Dr. P Arjun"
-                    // image: "/webcoursera/assets/images/HTML.png"
-                    // url: "/webcoursera/courses/html_course.php"
                     let count = (element["completion_status"].match(/1/g) || []).length;
-                    let percentage = Math.round((count/element["course_tasks"]) * 100*100)/100;
+                    let percentage = Math.round((count / element["course_tasks"]) * 100 * 100) / 100;
                     $(`<div class="container bcontent" style="margin:auto!important; display:inline-block;">
                         <div class="card" style="max-width: 800px; display:inline-block;">
                             <div class="row no-gutters">

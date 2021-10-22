@@ -1,7 +1,4 @@
 /*jshint esversion: 6 */
-
-
-// To get a cookie in Javascript
 function getCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
@@ -16,6 +13,7 @@ function getCookie(cname) {
     return "";
 }
 
+// To get a cookie in Javascript
 function levenshtein(a, b) {
     if (a.length === 0) return b.length;
     if (b.length === 0) return a.length;
@@ -50,56 +48,52 @@ function levenshtein(a, b) {
     return matrix[b.length][a.length];
 }
 
-// const levenshteinDistance = (s, t) => {
-//     if (!s.length) return t.length;
-//     if (!t.length) return s.length;
-//     const arr = [];
-//     for (let i = 0; i <= t.length; i++) {
-//         arr[i] = [i];
-//         for (let j = 1; j <= s.length; j++) {
-//             arr[i][j] =
-//                 i === 0
-//                     ? j
-//                     : Math.min(
-//                         arr[i - 1][j] + 1,
-//                         arr[i][j - 1] + 1,
-//                         arr[i - 1][j - 1] + (s[j - 1] === t[i - 1] ? 0 : 1)
-//                     );
-//         }
-//     }
-//     return arr[t.length][s.length];
-// };
-
-const links = {
-    "html": "courses/html_course.php",
-    "hyper text markup language": "courses/html_course.php",
-    "ajax": "courses/ajax_course.php",
-    "python": "courses/python_course.php",
-    "java": "courses/java_course.php",
-    "cascading": "courses/css_course.php",
-    "stylesheets": "courses/css_course.php",
-    "css": "courses/css_course.php",
-    "javascript": "courses/javascript_course.php",
-    "homepage": "index.php",
-    "home": "index.php",
-    "terms": "terms.html",
-    "privacy policy": "privacy_policy.html",
-    "help and support": "faq.html",
-    "help": "faq.html",
-    "support": "faq.html",
-    "about us": "about_us.html",
-    "about": "about_us.html",
-    "contact us": "contact_us.html",
-    "contact": "contact_us.html",
-    "login": "login/login.php",
-    "sign in": "login/login.php",
-    "sign up": "login/signup.php"
-};
+let links = {};
+let user = getCookie("user");
+if (user === 'Admin') {
+    links = {
+        "home": "admin/admin_home.php",
+        "dashoboard": "admin/admin_home.php",
+        "design": "admin/db_design.php",
+        "db": "admin/db_design.php",
+        "courses": "admin/monitor_courses.php",
+        "monitor courses": "admin/monitor_courses.php",
+        "sql": "admin/sql_query.php",
+        "query": "admin/sql_query.php",
+        "sql query": "admin/sql_query.php"
+    };
+} else {
+    links = {
+        "html": "courses/html_course.php",
+        "hyper text markup language": "courses/html_course.php",
+        "ajax": "courses/ajax_course.php",
+        "python": "courses/python_course.php",
+        "java": "courses/java_course.php",
+        "cascading": "courses/css_course.php",
+        "stylesheets": "courses/css_course.php",
+        "css": "courses/css_course.php",
+        "javascript": "courses/javascript_course.php",
+        "homepage": "index.php",
+        "home": "index.php",
+        "terms": "terms.html",
+        "privacy policy": "privacy_policy.html",
+        "help and support": "faq.html",
+        "help": "faq.html",
+        "support": "faq.html",
+        "about us": "about_us.html",
+        "about": "about_us.html",
+        "contact us": "contact_us.html",
+        "contact": "contact_us.html",
+        "login": "login/login.php",
+        "sign in": "login/login.php",
+        "sign up": "login/signup.php"
+    };
+}
 
 function searchQuery() {
     let q = document.querySelector("#SearchBar").value.trim().toLowerCase().replace(/[^\w ]/, '');
     // console.log(q);
-    if(q.length < 2){
+    if (q.length < 2) {
         return false;
     }
     obj = Object.keys(links);
@@ -125,7 +119,6 @@ function searchQuery() {
     return true;
 }
 
-
 // To set a cookie in Javascript
 function setCookie(cname, cvalue, exdays) {
     const d = new Date();
@@ -135,7 +128,6 @@ function setCookie(cname, cvalue, exdays) {
 }
 
 // For locations in root directory for header and footer
-
 document.querySelector("#footerLocation").innerHTML =
     `<footer class="pt-4 pb-1 mt-5 text-white bg-dark" style="background-color: white;text-align: left;">
             <div class="row row-cols-sm-1 row-cols-md-3" style="color: white!important;">
@@ -200,81 +192,273 @@ document.querySelector("#footerLocation").innerHTML =
         </footer>`;
 
 
-document.querySelector("#headerLocation").innerHTML =
-    `<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-3">
-            <div class="container-fluid">
-                <a class="navbar-brand hover-effect" href="/webcoursera/index.php">
-                    <img src="/webcoursera/assets/images/logo.png" width="25" height="25" alt="..."/>
-                    WebCoursera
-                </a>
-                <button
-                        class="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavAltMarkup"
-                        aria-controls="navbarNavAltMarkup"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                >
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li>
-                            <a class="nav-link hover-effect" href="/webcoursera/courses/html_course.php">HTML</a>
-                        </li>
-                        <li>
-                            <a class="nav-link hover-effect" href="/webcoursera/courses/css_course.php">CSS</a>
-                        </li>
-                        <li>
-                            <a class="nav-link hover-effect" href="/webcoursera/courses/javascript_course.php"
-                            >JavaScript</a
-                            >
-                        </li>
-                        <li>
-                            <a class="nav-link hover-effect" href="/webcoursera/courses/java_course.php"> Java</a>
-                        </li>
-                        <li>
-                            <a class="nav-link hover-effect" href="/webcoursera/courses/ajax_course.php">AJAX</a>
-                        </li>
-                        <li>
-                            <a class="nav-link hover-effect" href="/webcoursera/courses/python_course.php"
-                            >Python</a
-                            >
-                        </li>
-                    </ul>
-                    <div class="d-flex">
-                    <input
-                            class="form-control me-2"
-                            type="search"
-                            placeholder="Search"
-                            id="SearchBar"
-                            name="SearchBar"
-                            aria-label="Search"
-                    />
-                    <button class="css-button-sliding-to-left--green me-2"
-                    onclick="return searchQuery()">
-                        Search
+
+if (user === "Admin") {
+    document.querySelector("#headerLocation").innerHTML =
+        `<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-3">
+                <div class="container-fluid">
+                    <a class="navbar-brand hover-effect" href="/webcoursera/admin/admin_home.php">
+                        <img src="/webcoursera/assets/images/logo.png" width="25" height="25" alt="..."/>
+                        WebCoursera
+                    </a>
+                    <button
+                            class="navbar-toggler"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavAltMarkup"
+                            aria-controls="navbarNavAltMarkup"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
+                    >
+                        <span class="navbar-toggler-icon"></span>
                     </button>
-                    </div>
-                    <div class="d-flex justify-content-center login-front">
-                        <a type="button" href="/webcoursera/login/login.php"
-                        class="btn-md btn-nav btn btn-outline-info me-2 justify-content-evenly">
-                            Login
-                        </a>
-                        <a type="button" href="/webcoursera/login/signup.php"
-                        class="btn-md btn-nav btn btn-outline-warning justify-content-evenly">
-                            Sign Up
-                        </a>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li>
+                                <a class="nav-link hover-effect" href="/webcoursera/admin/admin_home.php">Home</a>
+                            </li>
+                            <li>
+                                <a class="nav-link hover-effect" href="/webcoursera/admin/monitor_courses.php">Monitor Courses</a>
+                            </li>
+                            <li>
+                                <a class="nav-link hover-effect" href="/webcoursera/admin/db_design.php">
+                                    DB Design
+                                </a>
+                            </li>
+                            <li>
+                                <a class="nav-link hover-effect" href="/webcoursera/admin/sql_query.php">SQL Query</a>
+                            </li>
+                        </ul>
+                        <div class="d-flex">
+                        <input
+                                class="form-control me-2"
+                                type="search"
+                                placeholder="Search"
+                                id="SearchBar"
+                                name="SearchBar"
+                                aria-label="Search"
+                        />
+                        <button class="css-button-sliding-to-left--green me-2"
+                        onclick="return searchQuery()">
+                            Search
+                        </button>
+                        </div>
+                        <div class="d-flex justify-content-center login-front">
+                            <a type="button" href="/webcoursera/login/login.php"
+                            class="btn-md btn-nav btn btn-outline-info me-2 justify-content-evenly">
+                                Login
+                            </a>
+                            <a type="button" href="/webcoursera/login/signup.php"
+                            class="btn-md btn-nav btn btn-outline-warning justify-content-evenly">
+                                Sign Up
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>`;
-let user = getCookie("user");
+            </nav>`;
+    $(window).on("load", function () {
+        if (getCookie("user") !== "Admin") {
+            alert("Not authenticated as admin.");
+            window.location.href = "/webcoursera/index.php";
+        } else {
+            if (document.querySelector("title").innerText.toLowerCase() === "home") {
+                $.ajax({
+                    method: "POST",
+                    url: "load_registered_users.php",
+                    data: {
+                    },
+                    success: function (data) {
+                        if (data === "Does not exist") {
+                            $(
+                                `<div class="my-5" style="font-size: 1.5em;">
+                                        There are no registered users in the website. Kindly circulate the same among users.
+                                    </div>
+                                    `
+                            ).insertAfter("#hrBreak");
+                        } else {
+                            let response = JSON.parse(data);
+                            let keys = Object.keys(response[0]);
+                            let finalHTML = ["<table id='example'>", "<thead>", "<tr>"];
+                            for (let i = 0; i < keys.length; i++) {
+                                finalHTML.push(`<th>${keys[i].toUpperCase()}</th>`);
+                            }
+                            finalHTML.push("</tr><tbody>");
+                            for (let i = 0; i < response.length; i++) {
+                                finalHTML.push("<tr>");
+                                for (let j = 0; j < keys.length; j++) {
+                                    finalHTML.push(`<td>${response[i][keys[j]]}</td>`);
+                                }
+                                finalHTML.push("</tr>");
+                            }
+                            finalHTML.push("</tbody></table>");
+                            document.querySelector("#tableSample").innerHTML = finalHTML.join("\n");
+
+                            let myTable =
+                                new JSTable("#example", {
+                                    perPage: 5,
+                                    perPageSelect: [5, 10, 15, 20, 25],
+                                    nextPrev: true,
+                                    firstLast: false,
+                                    prevText: "&lsaquo;",
+                                    nextText: "&rsaquo;",
+                                    firstText: "&laquo;",
+                                    lastText: "&raquo;",
+                                    ellipsisText: "&hellip;",
+                                    truncatePager: true,
+                                    pagerDelta: 2,
+                                    searchable: true,
+                                    sortable: true,
+                                    top: "dt-top",
+                                    info: "dt-info",
+                                    input: "dt-input",
+                                    table: "dt-table",
+                                    bottom: "dt-bottom",
+                                    search: "dt-search",
+                                    sorter: "dt-sorter",
+                                    wrapper: "dt-wrapper",
+                                    dropdown: "dt-dropdown",
+                                    ellipsis: "dt-ellipsis",
+                                    selector: "dt-selector",
+                                    container: "dt-container",
+                                    pagination: "dt-pagination",
+                                    loading: "dt-loading",
+                                    message: "dt-message",
+                                    labels: {
+                                        placeholder: "Search...",
+                                        perPage: "{select} entries per page",
+                                        noRows: "No entries found",
+                                        info: "Showing {start} to {end} of {rows} entries",
+                                        loading: "Loading...",
+                                        infoFiltered: "Showing {start} to {end} of {rows} entries (filtered from {rowsTotal} entries)"
+                                    }, layout: {
+                                        top: "{select}{search}",
+                                        bottom: "{info}{pager}"
+                                    },
+                                });
+
+                            myTable.on("init", function () {
+                                // on init
+                            });
+
+                            myTable.on("update", function () {
+                                // when the data is updated
+                            });
+
+                            myTable.on("getData", function (dataRows) {
+                                // when the data is processed
+                            });
+
+                            myTable.on("fetchData", function (serverData) {
+                                // when the data is fetched from the server
+                            });
+
+                            myTable.on("search", function (query) {
+                                // after filtering
+                            });
+
+                            myTable.on("sort", function (column, direction) {
+                                // after the data is sorted
+                            });
+
+                            myTable.on("paginate", function (old_page, new_page) {
+                                console.log(old_page);
+                                console.log(new_page);
+                            });
+
+                            myTable.on("perPageChange", function (old_value, new_value) {
+                                console.log(old_value);
+                                console.log(new_value);
+                            });
+                        }
+
+
+
+                        console.log("Success!");
+                    }
+                });
+            }
+        }
+    });
+
+} else {
+    document.querySelector("#headerLocation").innerHTML =
+        `<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top py-3">
+                    <div class="container-fluid">
+                        <a class="navbar-brand hover-effect" href="/webcoursera/index.php">
+                            <img src="/webcoursera/assets/images/logo.png" width="25" height="25" alt="..."/>
+                            WebCoursera
+                        </a>
+                        <button
+                                class="navbar-toggler"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#navbarNavAltMarkup"
+                                aria-controls="navbarNavAltMarkup"
+                                aria-expanded="false"
+                                aria-label="Toggle navigation"
+                        >
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li>
+                                    <a class="nav-link hover-effect" href="/webcoursera/courses/html_course.php">HTML</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link hover-effect" href="/webcoursera/courses/css_course.php">CSS</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link hover-effect" href="/webcoursera/courses/javascript_course.php"
+                                    >JavaScript</a
+                                    >
+                                </li>
+                                <li>
+                                    <a class="nav-link hover-effect" href="/webcoursera/courses/java_course.php"> Java</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link hover-effect" href="/webcoursera/courses/ajax_course.php">AJAX</a>
+                                </li>
+                                <li>
+                                    <a class="nav-link hover-effect" href="/webcoursera/courses/python_course.php"
+                                    >Python</a
+                                    >
+                                </li>
+                            </ul>
+                            <div class="d-flex">
+                            <input
+                                    class="form-control me-2"
+                                    type="search"
+                                    placeholder="Search"
+                                    id="SearchBar"
+                                    name="SearchBar"
+                                    aria-label="Search"
+                            />
+                            <button class="css-button-sliding-to-left--green me-2"
+                            onclick="return searchQuery()">
+                                Search
+                            </button>
+                            </div>
+                            <div class="d-flex justify-content-center login-front">
+                                <a type="button" href="/webcoursera/login/login.php"
+                                class="btn-md btn-nav btn btn-outline-info me-2 justify-content-evenly">
+                                    Login
+                                </a>
+                                <a type="button" href="/webcoursera/login/signup.php"
+                                class="btn-md btn-nav btn btn-outline-warning justify-content-evenly">
+                                    Sign Up
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>`;
+
+}
+
+// let user = getCookie("user");
 if (user !== "") {
     if (screen.width < 992) {
         document.querySelector(".login-front").innerHTML =
-            `<a type="button" href="javascript:void(0)"
+            `<a type="button" href="/webcoursera/profile.php"
         class="btn-md btn-nav btn btn-outline-info me-2 justify-content-evenly">
                 <img class="me-md-1" src="/webcoursera/assets/images/placeholder.png" width="25px" height="25px" alt="...">
                 <span class="style="color:white;">
