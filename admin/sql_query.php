@@ -28,7 +28,7 @@
         <hr>
         <div id="queryDetails" style="font-size: 1.2em; font-style: italic">
         </div>
-        <div id="tableSample">
+        <div id="tableSample" style="text-align:left!important;">
         </div>
     </div>
     
