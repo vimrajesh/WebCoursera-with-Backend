@@ -89,6 +89,9 @@
                                     <li class="list-group-item" id="registerButton" style="display:none;">
                                         <button type="button" class="btn btn-primary btn-md btn-block">Register</button>
                                     </li>
+                                    <li class="list-group-item">
+                                        <button type="button"  id="registeredUsers" class="btn btn-outline-danger btn-md btn-block" style="cursor: default;"></button>
+                                    </li>
                                 </ul>
                             </div>
                             <!-- <h5 class="card-title">Java</h5>

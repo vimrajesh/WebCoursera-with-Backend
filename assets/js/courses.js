@@ -2,6 +2,22 @@ $(window).on("load", function () {
     let course_name = $("title")[0].innerText;
     console.log(course_name);
     let email = getCookie("email");
+
+    $.ajax({
+        method: "POST",
+        url: "courses_registered_count.php",
+        data: {
+            course_name: course_name
+        },
+        success: function (data) {
+            let registeredUsers = document.querySelector("#registeredUsers");
+            // registeredUsers.innerHTML = `Registered Users for ${course_name}: ${data}`;
+            registeredUsers.innerHTML = `Enrolled Users for ${course_name} course : ${data}`;
+            // registeredUsers.innerHTML = `${data} Users have already joined ${course_name} course. Register soon.`;
+            console.log("Success fetched registered users!");
+        }
+    });
+
     $.ajax({
         method: "POST",
         url: "checkboxesLoad.php",
@@ -75,7 +91,8 @@ $("#registerButton").on("click", function () {
                     console.log("Success!");
                     $("#profile-tab").css("display", "block");
                     $("#contact-tab").css("display", "block");
-                    $("#registerButton").css("display","none");    
+                    $("#registerButton").css("display","none"); 
+                    window.location.reload();   
                 }
                 else{
                     alert("Could not register. Try again.");
