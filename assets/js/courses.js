@@ -60,8 +60,9 @@ $("input:checkbox").change(function () {
 
 $("#registerButton").on("click", function () {
     let course_name = $("title")[0].innerText;
+    let email = getCookie("email");
+    if(email !== ""){
     if (confirm(`Do you want to register for the ${course_name} course?`)) {
-        let email = getCookie("email");
         $.ajax({
             method: "POST",
             url: "registerCourse.php",
@@ -82,5 +83,7 @@ $("#registerButton").on("click", function () {
                 
             }
         });   
+    }} else{
+        alert("Kindly login before registering.")
     }
 })
