@@ -41,6 +41,7 @@ WebCoursera home page must display the icons for categories, search bar, login a
 
 ## How to use it?
 - Use a local server and host the page.
+- Rename the downloaded folder containing the pages to WebCoursera.
 - The landing page is **index.php** in root folder. 
 - There are multiple courses hosted on it. Each course page has course recordings, references and info about the course. 
 - There are other helper pages as well like Login, Signup, Contact Us, About Us etc.
