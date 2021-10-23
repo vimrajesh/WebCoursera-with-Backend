@@ -30,13 +30,13 @@ WebCoursera home page must display the icons for categories, search bar, login a
 10. Run the website on http server.
 
 ## Technologies Used
-1. HTML
-2. CSS
-3. Javascript (JS)
-4. SQL
-5. PHP
-6. Bootstrap
-7. AJAX
+- HTML
+- CSS
+- Javascript (JS)
+- SQL
+- PHP
+- Bootstrap
+- AJAX
 
 
 ## How to use it?
