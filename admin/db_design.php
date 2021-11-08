@@ -19,7 +19,7 @@
     <div class="container mt-4 mb-5" id="profileCourses" style="margin:0 auto!important;">
         <h1 class="display-4 mt-4" style="font-weight: 500">Database Design for Reference</h1>
         <hr id="hrBreak"/>
-        <img src="../assets/images/db_design.png" alt="..." >
+        <img class="img-fluid" src="../assets/images/db_design.png" alt="..." >
     </div>
     <p id="footerLocation"></p>
     <script src="jstable.min.js"></script>
