@@ -53,7 +53,7 @@ let user = getCookie("user");
 if (user === 'Admin') {
     links = {
         "home": "admin/admin_home.php",
-        "dashoboard": "admin/admin_home.php",
+        "dashboard": "admin/admin_home.php",
         "design": "admin/db_design.php",
         "db": "admin/db_design.php",
         "courses": "admin/monitor_courses.php",
